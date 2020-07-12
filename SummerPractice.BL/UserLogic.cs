@@ -37,5 +37,10 @@ namespace SummerPractice.BL
         {
             userBase.InsertIntoUser(login, password, surname, name, patronymic, dateOfBirth);
         }
+
+        public bool Authorization(string login, string password)
+        {
+            return userBase.Authorization(login, password);
+        }
     }
 }

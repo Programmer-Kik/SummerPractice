@@ -13,5 +13,6 @@ namespace SummerPractice.DAO
             string name, string patronymic, DateTime dateOfBirth);
         void AddBookForUser(int userId, int bookId);
         User FindUserById(int id);
+        bool Authorization(string login, string password);
     }
 }

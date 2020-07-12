@@ -139,5 +139,51 @@ namespace SummerPractice.DAO
                 throw new Exception("Can't add new user!");
             }
         }
+
+        public bool Authorization(string login, string password)
+        {
+            try
+            {
+                bool isAuthorization = false;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    var command = connection.CreateCommand();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "Authorization";
+
+                    var paramLogin = command.CreateParameter();
+                    paramLogin.DbType = DbType.String;
+                    paramLogin.ParameterName = "@login";
+                    paramLogin.Value = login;
+
+                    var paramPassword = command.CreateParameter();
+                    paramPassword.DbType = DbType.String;
+                    paramPassword.ParameterName = "@password";
+                    paramPassword.Value = password;
+
+                    command.Parameters.Add(paramLogin);
+                    command.Parameters.Add(paramPassword);
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                isAuthorization = (int)reader["count"] == 1 ? true : false;
+                            }
+                        }
+                    }
+
+                    return isAuthorization;
+                }
+            }
+            catch
+            {
+                throw new Exception("Error during authorization!");
+            }
+        }
     }
 }
