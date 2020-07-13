@@ -1,0 +1,53 @@
+﻿@model SummerPractise.MVC.Models.Book
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<h2>Список книг</h2>
+
+<div>
+    @foreach(var item in ViewBag.books)
+    {
+        <ul>
+            <li>
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        @item.Name
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Year)
+                    </dt>
+                    <dd>
+                        @item.Year
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AuthorSurname)
+                    </dt>
+                    <dd>
+                        @item.AuthorSurname
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AuthorName)
+                    </dt>
+                    <dd>
+                        @item.AuthorName
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AuthorPatronymic)
+                    </dt>
+                    <dd>
+                        @item.AuthorPatronymic
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    }
+</div>

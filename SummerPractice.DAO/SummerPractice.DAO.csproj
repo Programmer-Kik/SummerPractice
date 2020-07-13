@@ -77,11 +77,5 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SummerPractice.Entity\SummerPractice.Entity.csproj">
-      <Project>{327496EB-5D59-4096-90FC-9826CCAFC385}</Project>
-      <Name>SummerPractice.Entity</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

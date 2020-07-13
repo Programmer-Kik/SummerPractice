@@ -104,6 +104,7 @@ namespace SummerPractice.DAO
                             }
                         }
                     }
+                }
 
                     return book;
             }

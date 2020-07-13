@@ -46,21 +46,27 @@ namespace SummerPractice.DAO
             }
         }
 
-        public User FindUserById(int id)
+        public User FindUser(string login, string password)
         {
             User user = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 var command = connection.CreateCommand();
                 command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "Find_user_by_id";
+                command.CommandText = "Find_user";
 
-                var paramId = command.CreateParameter();
-                paramId.DbType = DbType.Int32;
-                paramId.ParameterName = "@id";
-                paramId.Value = id;
+                var paramLogin = command.CreateParameter();
+                paramLogin.DbType = DbType.String;
+                paramLogin.ParameterName = "@login";
+                paramLogin.Value = login;
 
-                command.Parameters.Add(paramId);
+                var paramPassword = command.CreateParameter();
+                paramPassword.DbType = DbType.String;
+                paramPassword.ParameterName = "@password";
+                paramPassword.Value = password;
+
+                command.Parameters.Add(paramLogin);
+                command.Parameters.Add(paramPassword);
 
                 connection.Open();
 

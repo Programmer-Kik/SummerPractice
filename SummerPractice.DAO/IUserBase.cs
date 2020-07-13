@@ -12,7 +12,7 @@ namespace SummerPractice.DAO
         void InsertIntoUser(string login, string password, string surname,
             string name, string patronymic, DateTime dateOfBirth);
         void AddBookForUser(int userId, int bookId);
-        User FindUserById(int id);
+        User FindUser(string login, string password);
         bool Authorization(string login, string password);
     }
 }

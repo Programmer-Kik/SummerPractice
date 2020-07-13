@@ -27,9 +27,9 @@ namespace SummerPractice.BL
             userBase.AddBookForUser(userId, bookId);
         }
 
-        public User FindUserById(int id)
+        public User FindUser(string login, string password)
         {
-            return userBase.FindUserById(id);
+            return userBase.FindUser(login, password);
         }
 
         public void InsertIntoUser(string login, string password, string surname,

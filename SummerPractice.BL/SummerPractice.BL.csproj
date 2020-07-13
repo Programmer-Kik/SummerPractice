@@ -46,15 +46,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserLogic.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SummerPractice.DAO\SummerPractice.DAO.csproj">
-      <Project>{4766FBEA-D8B4-4E6C-A8E7-16688EAB5A85}</Project>
-      <Name>SummerPractice.DAO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SummerPractice.Entity\SummerPractice.Entity.csproj">
-      <Project>{327496EB-5D59-4096-90FC-9826CCAFC385}</Project>
-      <Name>SummerPractice.Entity</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
