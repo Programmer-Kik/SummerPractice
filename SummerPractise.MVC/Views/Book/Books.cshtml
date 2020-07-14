@@ -73,21 +73,24 @@
             <td>Удалить книгу</td>
             <td>Обновить книгу</td>
         </tr>
-        @foreach (var book in ViewBag.books)
+        @if (ViewBag.books != null)
         {
-        <tr>
-            <td>@book.Name</td>
-            <td>@book.Year</td>
-            <td>@book.AuthorSurname</td>
-            <td>@book.AuthorName</td>
-            <td>@book.AuthorPatronymic</td>
-            <td>
-                @Html.ActionLink("Удалить книгу", "DeleteBook", new { id = book.Id }, new { @class = "myClass" })
-            </td>
-            <td>
-                @Html.ActionLink("Обновить книгу", "UpdateBook", new { id = book.Id }, new { @class = "myClass" })
-            </td>
-        </tr>
+            foreach (var book in ViewBag.books)
+            {
+                <tr>
+                    <td>@book.Name</td>
+                    <td>@book.Year</td>
+                    <td>@book.AuthorSurname</td>
+                    <td>@book.AuthorName</td>
+                    <td>@book.AuthorPatronymic</td>
+                    <td>
+                        @Html.ActionLink("Удалить книгу", "DeleteBook", new { id = book.Id }, new { @class = "myClass" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Обновить книгу", "UpdateBook", new { id = book.Id }, new { @class = "myClass" })
+                    </td>
+                </tr>
+            }
         }
     </table>
 </div>

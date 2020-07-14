@@ -30,7 +30,7 @@ namespace SummerPractise.MVC.Controllers
                     (ub, b) => new UserBook
                     {
                         UserId = ub.UserId,
-                        BookId = ub.BookId,
+                        BookId = b.Id,
                         Book = new Book
                         {
                             Name = b.Name,
@@ -51,6 +51,78 @@ namespace SummerPractise.MVC.Controllers
             return View();
         }
 
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddBookToUser(Book model)
+        {
+            string login = User.Identity.Name;
+            if(ModelState.IsValid)
+            {
+                using (Context db = new Context())
+                {
+                    int userId = db.Users.FirstOrDefault(u => u.Login == login).Id;
+                    int bookId = db.Books.FirstOrDefault(b => b.Name == model.Name && b.Year == model.Year).Id;
+                    if(db.UserBooks.FirstOrDefault(ub => ub.UserId == userId && ub.BookId == bookId) == null)
+                    {
+                        db.UserBooks.Add(new UserBook { UserId = userId, BookId = bookId });
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("About");
+        }
 
+        [Authorize]
+        public ActionResult DeleteBookToUser(int bookId)
+        {
+            string login = User.Identity.Name;
+            if (ModelState.IsValid)
+            {
+                using (Context db = new Context())
+                {
+                    int userId = db.Users.FirstOrDefault(u => u.Login == login).Id;
+                    UserBook userBook = db.UserBooks.FirstOrDefault(ub => ub.UserId == userId && ub.BookId == bookId);
+                    if(userBook != null)
+                    {
+                        db.UserBooks.Attach(userBook);
+                        db.UserBooks.Remove(userBook);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("About");
+        }
+
+        [Authorize]
+        public ActionResult UpdateUser()
+        {
+            User user = null;
+            string login = User.Identity.Name;
+            using (Context db = new Context())
+            {
+                user = db.Users.FirstOrDefault(u => u.Login == login);
+            }
+            return View(user);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult UpdateUser(User model)
+        {
+            User updatedUser = null;
+            if(ModelState.IsValid)
+            {
+                using (Context db = new Context())
+                {
+                    updatedUser = db.Users.FirstOrDefault(u => u.Id == model.Id);
+                    updatedUser.Password = model.Password;
+                    updatedUser.Surname = model.Surname;
+                    updatedUser.Name = model.Name;
+                    updatedUser.Patronymic = model.Patronymic;
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("About");
+        }
     }
 }

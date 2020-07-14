@@ -182,6 +182,7 @@
     <Content Include="Views\User\AddBookToUser.cshtml" />
     <Content Include="Views\Book\UpdateBook.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
+    <Content Include="Views\User\UpdateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
