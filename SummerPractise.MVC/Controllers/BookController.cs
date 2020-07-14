@@ -31,6 +31,21 @@ namespace SummerPractise.MVC.Controllers
         }
 
         [Authorize]
+        [HttpPost]
+        public ActionResult AddBook(Book model)
+        {
+            if(ModelState.IsValid)
+            {
+                using (Context db = new Context())
+                {
+                    db.Books.Add(model);
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Books");
+        }
+
+        [Authorize]
         public ActionResult DeleteBook(int id)
         {
             if(ModelState.IsValid)

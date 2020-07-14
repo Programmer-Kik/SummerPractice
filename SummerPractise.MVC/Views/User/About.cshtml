@@ -13,6 +13,44 @@
             border-color: black;
             text-align: left;
         }
+
+        a.myClass {
+            color: black;
+            text-decoration: none;
+            background-color: white;
+        }
+
+        a.myClass:hover {
+            color: black;
+            text-decoration: none;
+            background-color: whitesmoke;
+        }
+
+        a.myClass:active {
+            color: gray;
+            text-decoration: none;
+            background-color: whitesmoke;
+        }
+
+        a.myClass1 {
+            border: solid;
+            border-color: black;
+            color: black;
+            text-decoration: none;
+            background-color: white;
+        }
+
+        a.myClass1:hover {
+            color: black;
+            text-decoration: none;
+            background-color: whitesmoke;
+        }
+
+        a.myClass1:active {
+            color: gray;
+            text-decoration: none;
+            background-color: whitesmoke;
+        }
     </style>
 </head>
 <h2>Информация о Вас</h2>
@@ -70,5 +108,29 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Добавить книгу", "AddBookToUser")
+    @Html.ActionLink("Добавить книгу", "AddBookToUser", new { }, new { @class = "myClass1" })
 </div>
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Year</td>
+        <td>AuthorSurname</td>
+        <td>AuthorName</td>
+        <td>AuthorPatronymic</td>
+        <td>Удалить книгу</td>
+    </tr>
+    @foreach (var book in ViewBag.books)
+    {
+    <tr>
+        <td>@book.Book.Name</td>
+        <td>@book.Book.Year</td>
+        <td>@book.Book.AuthorSurname</td>
+        <td>@book.Book.AuthorName</td>
+        <td>@book.Book.AuthorPatronymic</td>
+        <td>
+            @Html.ActionLink("Удалить книгу", "DeleteBookToUser", new { id = book.Book.Id }, new { @class = "myClass" })
+        </td>
+    </tr>
+    }
+</table>
