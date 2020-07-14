@@ -1,5 +1,20 @@
 ﻿@model SummerPractise.MVC.Models.User
 
+<head>
+    <style type="text/css">
+        table {
+            border: 3px double;
+            border-color: black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid;
+            border-color: black;
+            text-align: left;
+        }
+    </style>
+</head>
 <h2>Информация о Вас</h2>
 
 <div>
@@ -54,19 +69,6 @@
 
     </dl>
 </div>
-
 <div>
-    Ваши книги:
-    <ul>
-        @foreach (var item in Model.Books)
-        {
-
-            <li>
-                @{
-                    string book = item.Name + " " + item.Year;
-                 }
-                @book
-            </li>
-        }
-    </ul>
+    @Html.ActionLink("Добавить книгу", "AddBookToUser")
 </div>

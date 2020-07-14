@@ -18,5 +18,12 @@ namespace SummerPractise.MVC.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<UserBook> UserBooks { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserBook>()
+                .HasKey(t => new { t.UserId, t.BookId });
+        }
     }
 }

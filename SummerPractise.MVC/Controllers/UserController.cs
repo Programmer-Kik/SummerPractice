@@ -25,18 +25,9 @@ namespace SummerPractise.MVC.Controllers
         }
 
         [Authorize]
-        public ActionResult Update()
+        public ActionResult AddBookToUser()
         {
-            if(ModelState.IsValid)
-            {
-                User user = null;
-                string name = User.Identity.Name;
-                using (Context db = new Context())
-                {
-                    user = db.Users.FirstOrDefault(u => u.Login == name);
-                }
-            }
-            return RedirectToAction("UpdateUser", "User");
+            return View();
         }
     }
 }

@@ -4,50 +4,90 @@
     ViewBag.Title = "Books";
 }
 
+<head>
+    <style type="text/css">
+        table {
+            border: 3px double;
+            border-color: black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid;
+            border-color: black;
+            text-align: left;
+        }
+        a.myClass {
+            color: black;
+            text-decoration: none;
+            background-color:white;
+        }
+
+        a.myClass:hover {
+            color: black;
+            text-decoration: none;
+            background-color:whitesmoke;
+        }
+
+        a.myClass:active {
+            color: gray;
+            text-decoration: none;
+            background-color:whitesmoke;
+        }
+
+        a.myClass1 {
+            border:solid;
+            border-color:black;
+            color:black;
+            text-decoration: none;
+            background-color: white;
+        }
+
+        a.myClass1:hover {
+            color: black;
+            text-decoration: none;
+            background-color: whitesmoke;
+        }
+
+        a.myClass1:active {
+            color: gray;
+            text-decoration: none;
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+
 <h2>Список книг</h2>
+<hr />
+@Html.ActionLink("Добавить книгу", "AddBook", new { }, new { @class = "myClass1"})
+<hr />
 
 <div>
-    @foreach(var item in ViewBag.books)
-    {
-        <ul>
-            <li>
-                <dl>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </dt>
-                    <dd>
-                        @item.Name
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Year)
-                    </dt>
-                    <dd>
-                        @item.Year
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.AuthorSurname)
-                    </dt>
-                    <dd>
-                        @item.AuthorSurname
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.AuthorName)
-                    </dt>
-                    <dd>
-                        @item.AuthorName
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.AuthorPatronymic)
-                    </dt>
-                    <dd>
-                        @item.AuthorPatronymic
-                    </dd>
-                </dl>
-            </li>
-        </ul>
-    }
+    <table>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Name)</td>
+            <td>@Html.DisplayNameFor(model => model.Year)</td>
+            <td>@Html.DisplayNameFor(model => model.AuthorSurname)</td>
+            <td>@Html.DisplayNameFor(model => model.AuthorName)</td>
+            <td>@Html.DisplayNameFor(model => model.AuthorPatronymic)</td>
+            <td>Удалить книгу</td>
+            <td>Обновить книгу</td>
+        </tr>
+        @foreach (var book in ViewBag.books)
+        {
+        <tr>
+            <td>@book.Name</td>
+            <td>@book.Year</td>
+            <td>@book.AuthorSurname</td>
+            <td>@book.AuthorName</td>
+            <td>@book.AuthorPatronymic</td>
+            <td>
+                @Html.ActionLink("Удалить книгу", "DeleteBook", new { id = book.Id }, new { @class = "myClass" })
+            </td>
+            <td>
+                @Html.ActionLink("Обновить книгу", "UpdateBook", new { id = book.Id }, new { @class = "myClass" })
+            </td>
+        </tr>
+        }
+    </table>
 </div>
