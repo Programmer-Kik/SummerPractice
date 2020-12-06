@@ -1,9 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1145
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerPractise.MVC", "SummerPractise.MVC\SummerPractise.MVC.csproj", "{92EC7AE1-C09C-4431-9331-FEFAD73A7EC7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{EC258B2D-C708-49F6-875E-8F22100FD430}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{1CCD9B88-BD03-4F08-BEC4-F16D935F783E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{4338AEA8-A73C-4315-B14F-55D0FE7708E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{7DC85058-045C-4C38-8DEB-9433B724A21B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerPractise.DAL", "SummerPractise.DAL\SummerPractise.DAL.csproj", "{3604A580-0961-414C-94AD-4D0E5A47A61A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerPractise.Entity", "SummerPractise.Entity\SummerPractise.Entity.csproj", "{65CBF072-0A69-46FF-8807-DB9BD12227ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerPractise.BL", "SummerPractise.BL\SummerPractise.BL.csproj", "{90B4497A-CAD5-4FF5-9115-84E3229AD8CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerPractise.PL.MVC", "SummerPractise.PL.MVC\SummerPractise.PL.MVC.csproj", "{D399E634-D40B-475B-AC2A-9F0A34D87DEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +25,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{92EC7AE1-C09C-4431-9331-FEFAD73A7EC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92EC7AE1-C09C-4431-9331-FEFAD73A7EC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92EC7AE1-C09C-4431-9331-FEFAD73A7EC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92EC7AE1-C09C-4431-9331-FEFAD73A7EC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3604A580-0961-414C-94AD-4D0E5A47A61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3604A580-0961-414C-94AD-4D0E5A47A61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3604A580-0961-414C-94AD-4D0E5A47A61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3604A580-0961-414C-94AD-4D0E5A47A61A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CBF072-0A69-46FF-8807-DB9BD12227ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CBF072-0A69-46FF-8807-DB9BD12227ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CBF072-0A69-46FF-8807-DB9BD12227ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CBF072-0A69-46FF-8807-DB9BD12227ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90B4497A-CAD5-4FF5-9115-84E3229AD8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90B4497A-CAD5-4FF5-9115-84E3229AD8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90B4497A-CAD5-4FF5-9115-84E3229AD8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90B4497A-CAD5-4FF5-9115-84E3229AD8CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D399E634-D40B-475B-AC2A-9F0A34D87DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D399E634-D40B-475B-AC2A-9F0A34D87DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D399E634-D40B-475B-AC2A-9F0A34D87DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D399E634-D40B-475B-AC2A-9F0A34D87DEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3604A580-0961-414C-94AD-4D0E5A47A61A} = {4338AEA8-A73C-4315-B14F-55D0FE7708E4}
+		{65CBF072-0A69-46FF-8807-DB9BD12227ED} = {7DC85058-045C-4C38-8DEB-9433B724A21B}
+		{90B4497A-CAD5-4FF5-9115-84E3229AD8CE} = {1CCD9B88-BD03-4F08-BEC4-F16D935F783E}
+		{D399E634-D40B-475B-AC2A-9F0A34D87DEF} = {EC258B2D-C708-49F6-875E-8F22100FD430}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2578F51D-3DC8-4B15-81C3-6CED96858D80}
